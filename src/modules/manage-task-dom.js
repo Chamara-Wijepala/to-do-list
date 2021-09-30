@@ -1,6 +1,6 @@
-import { createTask } from "./logic";
+import { createTask } from "./manage-task-logic";
 
-const taskMenu = document.getElementById('tasks');
+const taskMenu = document.getElementById('task-menu');
 
 export function addTask() {
     let task = document.createElement('div');
@@ -30,4 +30,8 @@ function getTaskProperties() {
     let properties = Object.keys(createTask());
 
     return properties;
+};
+
+export function removeTask() {
+    taskMenu.removeChild(taskMenu.childNodes[0]);
 };

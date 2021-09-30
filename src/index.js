@@ -1,4 +1,6 @@
 import './styles/index.css';
-import { addTask } from './modules/dom';
+import { addTask, removeTask } from './modules/manage-task-dom';
 
 addTask();
+
+removeTask();
