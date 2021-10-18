@@ -2,7 +2,9 @@ import { projectStorage } from "./manage-project-logic";
 
 const projectList = document.getElementById('project-list');
 
+//creates and appends a li element to project-list for each object in projectStorage
 export function renderList() {
+    clearList();
     projectStorage.forEach(project => {
         const projectElement = document.createElement('li');
         projectElement.className = 'project';
@@ -12,18 +14,11 @@ export function renderList() {
     });
 };
 
-export function clearList() {
+function clearList() {
     projectList.textContent = '';
 };
 
 /*
-export function addProject() {
-    let project = document.createElement('div');
-    project.className = 'project';
-    project.innerText = 'project';
-    customList.appendChild(project);
-};
-
 export function removeProject() {
     customList.removeChild(customList.childNodes[0]);
 };
