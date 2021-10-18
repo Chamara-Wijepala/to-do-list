@@ -1,5 +1,18 @@
-const customList = document.getElementById('custom-list');
+import { projectStorage } from "./manage-project-logic";
 
+const projectList = document.getElementById('project-list');
+
+export function renderList() {
+    projectStorage.forEach(project => {
+        const projectElement = document.createElement('li');
+        projectElement.className = 'project';
+        projectElement.dataset.id = project.id;
+        projectElement.innerText = project.name;
+        projectList.appendChild(projectElement);
+    });
+};
+
+/*
 export function addProject() {
     let project = document.createElement('div');
     project.className = 'project';
@@ -10,3 +23,4 @@ export function addProject() {
 export function removeProject() {
     customList.removeChild(customList.childNodes[0]);
 };
+*/
