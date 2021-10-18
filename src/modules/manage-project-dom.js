@@ -12,6 +12,10 @@ export function renderList() {
     });
 };
 
+export function clearList() {
+    projectList.textContent = '';
+};
+
 /*
 export function addProject() {
     let project = document.createElement('div');
