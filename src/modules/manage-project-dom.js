@@ -1,6 +1,9 @@
 import { projectStorage } from "./manage-project-logic";
+import { appendProject } from "./manage-project-logic";
 
 const projectList = document.getElementById('project-list');
+const projectForm = document.getElementById('project-form');
+const projectInput = document.getElementById('project-input');
 
 //creates and appends a li element to project-list for each object in projectStorage
 export function renderList() {
@@ -16,6 +19,19 @@ export function renderList() {
 
 function clearList() {
     projectList.textContent = '';
+};
+
+projectForm.addEventListener('submit', e => {
+    e.preventDefault();
+    processForm();
+    renderList();
+});
+
+function processForm() {
+    let projectName = projectInput.value;
+    if (projectName === null || projectName === '') return;
+    projectInput.value = null;
+    appendProject(projectName);
 };
 
 /*

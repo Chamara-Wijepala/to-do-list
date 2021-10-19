@@ -13,15 +13,15 @@ export let projectStorage = [
     },
 ];
 
-function createProject() {
+function createProject(name) {
     return {
         id: projectStorage.length,
-        name: 'name',
+        name: name,
         tasks: [],
     };
 };
 
-export function appendProject() {
-    let project = createProject();
+export function appendProject(name) {
+    let project = createProject(name);
     projectStorage.push(project);
 };
