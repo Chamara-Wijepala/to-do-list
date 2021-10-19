@@ -1,17 +1,9 @@
-export let projectStorage = [
-    {
-        id: 0,
-        name: 'Home',
-    },
-    {
-        id: 1,
-        name: 'Today',
-    },
-    {
-        id: 2,
-        name: 'This Week',
-    },
-];
+const LOCAL_STORAGE = 'project.list';
+export let projectStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || [];
+
+export function setList() {
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(projectStorage));
+};
 
 function createProject(name) {
     return {
