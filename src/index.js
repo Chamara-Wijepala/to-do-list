@@ -8,9 +8,4 @@ addTask();
 
 removeTask();
 
-function setAndRenderList() {
-    renderList();
-    setList();
-};
-
-setAndRenderList();
+renderList();

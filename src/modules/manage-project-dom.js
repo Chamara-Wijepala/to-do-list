@@ -1,5 +1,4 @@
-import { projectStorage } from "./manage-project-logic";
-import { appendProject } from "./manage-project-logic";
+import { projectStorage, appendProject, setList } from "./manage-project-logic";
 
 const projectList = document.getElementById('project-list');
 const projectForm = document.getElementById('project-form');
@@ -24,6 +23,7 @@ function clearList() {
 projectForm.addEventListener('submit', e => {
     e.preventDefault();
     processForm();
+    setList()
     renderList();
 });
 
