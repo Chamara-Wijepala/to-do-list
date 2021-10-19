@@ -7,7 +7,7 @@ export function setList() {
 
 function createProject(name) {
     return {
-        id: projectStorage.length,
+        id: Date.now().toString(),
         name: name,
         tasks: [],
     };
