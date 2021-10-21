@@ -25,3 +25,8 @@ export function appendProject(name) {
     let project = createProject(name);
     projectStorage.push(project);
 };
+
+export function deleteProject() {
+    projectStorage = projectStorage.filter(project => project.id !== activeProject);
+    activeProject = null;
+};

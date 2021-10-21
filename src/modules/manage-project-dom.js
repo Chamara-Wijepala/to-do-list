@@ -1,12 +1,14 @@
-import { projectStorage,
-         appendProject,
-         setList,
-         activeProject, 
-         selectProject } from "./manage-project-logic";
+import {projectStorage,
+        appendProject,
+        setList,
+        activeProject, 
+        selectProject,
+        deleteProject } from "./manage-project-logic";
 
 const projectList = document.getElementById('project-list');
 const projectForm = document.getElementById('project-form');
 const projectInput = document.getElementById('project-input');
+const deleteProjectButton = document.getElementById('delete-project-button');
 
 //creates and appends a li element to project-list for each object in projectStorage
 export function renderList() {
@@ -49,8 +51,9 @@ projectList.addEventListener('click', e => {
     };
 });
 
-/*
-export function removeProject() {
-    customList.removeChild(customList.childNodes[0]);
-};
-*/
+//Deletes selected project using array filter()
+deleteProjectButton.addEventListener('click', e => {
+    deleteProject();
+    setList();
+    renderList();
+});
