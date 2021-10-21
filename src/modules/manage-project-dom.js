@@ -9,8 +9,10 @@ const projectList = document.getElementById('project-list');
 const projectForm = document.getElementById('project-form');
 const projectInput = document.getElementById('project-input');
 const deleteProjectButton = document.getElementById('delete-project-button');
+const taskMenu = document.getElementById('task-menu');
 
 //creates and appends a li element to project-list for each object in projectStorage
+//and renders task-menu if there's a selected project
 export function renderList() {
     clearList();
     projectStorage.forEach(project => {
@@ -23,9 +25,18 @@ export function renderList() {
         };
         projectList.appendChild(projectElement);
     });
+    renderTaskMenu();
 };
 function clearList() {
     projectList.textContent = '';
+};
+function renderTaskMenu() {
+    if (activeProject === null) {
+        taskMenu.style.display = 'none';
+    }
+    else {
+        taskMenu.style.display = '';
+    }
 };
 
 //Creates a dynamically named project object and stores it in projectStorage
