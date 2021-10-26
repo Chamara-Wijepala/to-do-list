@@ -1,7 +1,7 @@
 import {projectStorage,
         appendProject,
         setList,
-        activeProject, 
+        activeProjectId, 
         selectProject,
         deleteProject } from "./manage-project-logic";
 
@@ -14,24 +14,24 @@ const taskMenu = document.getElementById('task-menu');
 //creates and appends a li element to project-list for each object in projectStorage
 //and renders task-menu if there's a selected project
 export function renderList() {
-    clearList();
+    clearProjectList();
     projectStorage.forEach(project => {
         const projectElement = document.createElement('li');
         projectElement.classList.add('project');
         projectElement.dataset.id = project.id;
         projectElement.innerText = project.name;
-        if(project.id === activeProject) {
+        if(project.id === activeProjectId) {
             projectElement.classList.add('active-project');
         };
         projectList.appendChild(projectElement);
     });
     renderTaskMenu();
 };
-function clearList() {
+function clearProjectList() {
     projectList.textContent = '';
 };
 function renderTaskMenu() {
-    if (activeProject === null) {
+    if (activeProjectId === null) {
         taskMenu.style.display = 'none';
     }
     else {

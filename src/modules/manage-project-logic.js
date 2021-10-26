@@ -2,15 +2,15 @@ const LOCAL_STORAGE = 'project.list';
 export let projectStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || [];
 
 const LOCAL_STORAGE_PROJECT_ID = 'project.projectId';
-export let activeProject = localStorage.getItem(LOCAL_STORAGE_PROJECT_ID);
+export let activeProjectId = localStorage.getItem(LOCAL_STORAGE_PROJECT_ID);
 
 export function setList() {
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(projectStorage));
-    localStorage.setItem(LOCAL_STORAGE_PROJECT_ID, activeProject);
+    localStorage.setItem(LOCAL_STORAGE_PROJECT_ID, activeProjectId);
 };
 
 export function selectProject(e) {
-    activeProject = e.target.dataset.id;
+    activeProjectId = e.target.dataset.id;
 };
 
 function createProject(name) {
@@ -27,6 +27,6 @@ export function appendProject(name) {
 };
 
 export function deleteProject() {
-    projectStorage = projectStorage.filter(project => project.id !== activeProject);
-    activeProject = null;
+    projectStorage = projectStorage.filter(project => project.id !== activeProjectId);
+    activeProjectId = null;
 };
