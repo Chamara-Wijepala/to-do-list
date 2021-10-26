@@ -13,17 +13,16 @@ export function selectProject(e) {
     activeProjectId = e.target.dataset.id;
 };
 
+export function appendProject(name) {
+    let project = createProject(name);
+    projectStorage.push(project);
+};
 function createProject(name) {
     return {
         id: Date.now().toString(),
         name: name,
         tasks: [],
     };
-};
-
-export function appendProject(name) {
-    let project = createProject(name);
-    projectStorage.push(project);
 };
 
 export function deleteProject() {
