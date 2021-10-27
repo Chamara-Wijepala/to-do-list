@@ -53,15 +53,6 @@ function processForm() {
     appendProject(projectName);
 };
 
-//Applies a class to a clicked project then saves project's id in localStorage
-projectList.addEventListener('click', e => {
-    if (e.target.tagName.toLowerCase() === 'li') {
-        selectProject(e);
-        setList();
-        renderList();
-    };
-});
-
 //Deletes selected project using array filter()
 deleteProjectButton.addEventListener('click', e => {
     deleteProject();
