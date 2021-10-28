@@ -15,8 +15,14 @@ export function renderTaskList() {
     selectedProject.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true);
         const taskName = taskElement.querySelector('p');
-        taskName.id = task.id;
         taskName.innerText = task.name;
+        const checkBox = taskElement.querySelector('input');
+        checkBox.id = task.id;
+        checkBox.checked = task.priority;
+        const label = taskElement.querySelector('label');
+        label.htmlFor = task.id;
+        label.append(task.priority ? 'High' : 'Normal');
+        
         taskMenu.appendChild(taskElement);
     });
 };

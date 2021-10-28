@@ -1,8 +1,7 @@
 import {projectStorage,
         appendProject,
         setList,
-        activeProjectId, 
-        selectProject,
+        activeProjectId,
         deleteProject } from "./manage-project-logic";
 
 const projectList = document.getElementById('project-list');
