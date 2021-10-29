@@ -9,6 +9,7 @@ const projectForm = document.getElementById('project-form');
 const projectInput = document.getElementById('project-input');
 const deleteProjectButton = document.getElementById('delete-project-button');
 const taskMenu = document.getElementById('task-menu');
+const taskForm = document.getElementById('task-form');
 
 //creates and appends a li element to project-list for each object in projectStorage
 //and renders task-menu if there's a selected project
@@ -32,9 +33,11 @@ function clearProjectList() {
 function renderTaskMenu() {
     if (activeProjectId === null) {
         taskMenu.style.display = 'none';
+        taskForm.style.display = 'none';
     }
     else {
         taskMenu.style.display = '';
+        taskForm.style.display = '';
     }
 };
 
