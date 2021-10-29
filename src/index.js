@@ -1,11 +1,12 @@
 import './styles/index.css';
 import { activeProjectId, setList, selectProject } from './modules/manage-project-logic';
 import { renderList } from './modules/manage-project-dom';
-import { renderTaskList } from './modules/manage-task-dom';
+import { renderTaskList, processTaskForm } from './modules/manage-task-dom';
 import { togglePriority } from './modules/manage-task-logic';
 
 const projectList = document.getElementById('project-list');
 const taskMenu = document.getElementById('task-menu');
+const taskForm = document.getElementById('task-form');
 
 function loadPage() {
     renderList();
@@ -14,6 +15,14 @@ function loadPage() {
     }
     else return;
 };
+
+//Creates a dynamically named task and stores it in tasks array of activeProject
+taskForm.addEventListener('submit', e => {
+    e.preventDefault();
+    processTaskForm();
+    setList()
+    loadPage();
+});
 
 //Applies a class to a clicked project then saves project's id in localStorage
 projectList.addEventListener('click', e => {
