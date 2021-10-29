@@ -1,8 +1,7 @@
 import { projectStorage, activeProjectId } from "./manage-project-logic";
 
-const activeProject = projectStorage.find(project => project.id === activeProjectId);
-
 export function appendTask(name) {
+    let activeProject = projectStorage.find(project => project.id === activeProjectId);
     let task = createTask(name);
     activeProject.tasks.push(task);
 };
@@ -16,6 +15,7 @@ function createTask(name) {
 };
 
 export function togglePriority(e) {
+    let activeProject = projectStorage.find(project => project.id === activeProjectId);
     const activeTask = e.target.id;
     activeProject.tasks.forEach(task => {
         if (task.id === activeTask) {
