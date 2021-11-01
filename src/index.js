@@ -2,13 +2,14 @@ import './styles/index.css';
 import { activeProjectId, setList, selectProject } from './modules/manage-project-logic';
 import { renderList } from './modules/manage-project-dom';
 import { renderTaskList, processTaskForm } from './modules/manage-task-dom';
-import { togglePriority } from './modules/manage-task-logic';
+import { togglePriority, deleteTask } from './modules/manage-task-logic';
 
 const projectList = document.getElementById('project-list');
 const taskMenu = document.getElementById('task-menu');
 const taskForm = document.getElementById('task-form');
 
 function loadPage() {
+    setList();
     renderList();
     if (activeProjectId !== 'null') {
         renderTaskList();
@@ -20,7 +21,6 @@ function loadPage() {
 taskForm.addEventListener('submit', e => {
     e.preventDefault();
     processTaskForm();
-    setList()
     loadPage();
 });
 
@@ -28,7 +28,6 @@ taskForm.addEventListener('submit', e => {
 projectList.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li') {
         selectProject(e);
-        setList();
         loadPage();
     };
 });
@@ -37,7 +36,13 @@ projectList.addEventListener('click', e => {
 taskMenu.addEventListener('change', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
         togglePriority(e);
-        setList();
+        loadPage();
+    };
+});
+
+taskMenu.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'button') {
+        deleteTask(e);
         loadPage();
     };
 });

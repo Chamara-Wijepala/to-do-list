@@ -16,10 +16,16 @@ function createTask(name) {
 
 export function togglePriority(e) {
     let activeProject = projectStorage.find(project => project.id === activeProjectId);
-    const activeTask = e.target.id;
+    const activeTaskId = e.target.id;
     activeProject.tasks.forEach(task => {
-        if (task.id === activeTask) {
+        if (task.id === activeTaskId) {
             (task.priority === true) ? task.priority = false : task.priority = true;
         };
     });
+};
+
+export function deleteTask(e) {
+    const activeProject = projectStorage.find(project => project.id === activeProjectId);
+    const activeTaskId = e.target.id;
+    activeProject.tasks = activeProject.tasks.filter(task => task.id !== activeTaskId);
 };

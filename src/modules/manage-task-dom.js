@@ -20,6 +20,9 @@ export function renderTaskList() {
         const label = taskElement.querySelector('label');
         label.htmlFor = task.id;
         label.append(task.priority ? 'High' : 'Normal');
+        const deleteTaskButton = taskElement.querySelector('button');
+        deleteTaskButton.id = task.id;
+        deleteTaskButton.innerText = 'Delete Task';
         
         taskMenu.appendChild(taskElement);
     });
