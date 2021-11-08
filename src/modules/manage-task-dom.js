@@ -19,7 +19,7 @@ export function renderTaskList() {
         checkBox.checked = task.priority;
         const label = taskElement.querySelector('label');
         label.htmlFor = task.id;
-        label.append(task.priority ? 'High' : 'Normal');
+        label.append('Priority: ' + (task.priority ? 'High' : 'Normal'));
         const deleteTaskButton = taskElement.querySelector('button');
         deleteTaskButton.id = task.id;
         deleteTaskButton.innerText = 'Delete Task';
