@@ -8,7 +8,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 250px auto;
-    grid-template-rows: 75px auto;
+    grid-template-rows: 40px auto;
 }
 
 header {
@@ -29,8 +29,31 @@ nav {
     grid-column: 1 / 2;
     background-color: #fafafa;
     border-right: 1px solid #e3e3ee;
+    overflow: auto;
+    padding-left: 5px;
+}
+
+.active-project {
+    font-weight: bold;
 }
 
 main {
     grid-column: 2 / 3;
+    overflow: auto;
+}
+
+#task-menu {
+    padding: 25px;
+}
+
+#task-form {
+    padding: 0px 0px 25px 25px;
+}
+
+.text-input {
+    width: 200px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: none;
 }
