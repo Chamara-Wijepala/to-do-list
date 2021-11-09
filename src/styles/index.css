@@ -92,3 +92,19 @@ main {
     grid-template-columns: max-content max-content max-content;
     justify-content: space-between;
 }
+
+.delete-project-button {
+    padding: 5px;
+    background-color: #CCCCCC;
+    border: none;
+}
+
+.delete-project-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #FF0027;
+}
+
+nav button {
+    margin: 10px 0px 10px 0px;
+}

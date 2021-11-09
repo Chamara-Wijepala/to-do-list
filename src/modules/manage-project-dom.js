@@ -7,9 +7,9 @@ import {projectStorage,
 const projectList = document.getElementById('project-list');
 const projectForm = document.getElementById('project-form');
 const projectInput = document.getElementById('project-input');
-const deleteProjectButton = document.getElementById('delete-project-button');
 const taskMenu = document.getElementById('task-menu');
 const taskForm = document.getElementById('task-form');
+const deleteProjectButton = document.querySelector('.delete-project-button');
 
 //creates and appends a li element to project-list for each object in projectStorage
 //and renders task-menu if there's a selected project
