@@ -44,7 +44,7 @@ main {
 }
 
 #task-menu {
-    padding: 25px;
+    padding: 50px;
 }
 
 #task-form {
@@ -84,4 +84,11 @@ main {
 
 [type="checkbox"]:checked + label .custom-checkbox {
     background-color: #00a460;
+}
+
+.task {
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    justify-content: space-between;
 }
