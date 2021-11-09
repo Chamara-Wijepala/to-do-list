@@ -107,4 +107,6 @@ main {
 
 nav button {
     margin: 10px 0px 10px 0px;
+    position: sticky;
+    bottom: 10px;
 }
